@@ -24,7 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    ToastrModule
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

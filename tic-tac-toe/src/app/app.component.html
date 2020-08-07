@@ -1,4 +1,35 @@
 <div class="container">
-  <h1 class="display-2">Hey Component</h1>
-  <app-icon></app-icon>
+  <div class="row justify-content-center align-items-center">
+    <div class="col col-md-6">
+      <div class="text-center">
+        <h1 class="text-white">{{title}}</h1>
+        <h3 class="text-white"></h3>
+        <h1 [hidden]="isCross" class=" text-danger">Player One Turn</h1>
+        <h1 [hidden]="!isCross" class=" text-danger">Player Two Turn</h1>
+      </div>
+
+      <div class="grid" >
+        <div *ngFor="let item of itemArray; index as i ">
+          <div class="card">
+            <div class="card-box box" (click) = "handleClick(i)">
+              <app-icon [iconName] = 'item'></app-icon>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col col-md-6 text-center" *ngIf="winMessage">
+
+      <h3 class="text-white mb-3">Game Over {{winMessage}}</h3>
+
+      <button (click) = "reloadGame()" 
+      class="btn btn-danger pl-5 pr-5">
+      Reload Game
+      </button>
+
+    </div>
+  </div>
 </div>
