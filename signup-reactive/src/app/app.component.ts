@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup,Validators} from '@angular/forms';
+import { PasswordChecker } from './custom-validators/password-checker';
+
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,10 @@ export class AppComponent implements OnInit{
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
       acceptTandC: [false, Validators.requiredTrue],
+    }, {
+      validators: PasswordChecker("password", "confirmPassword"),
     });
+
   }
 
   onSubmit(){
@@ -33,7 +38,7 @@ export class AppComponent implements OnInit{
     console.table(this.registerForm);
     alert("SignUp Success\n" + JSON.stringify(this.registerForm.value));
   }
-  
+
   onReset(){
     this.submitted = false;
     this.registerForm.reset();
