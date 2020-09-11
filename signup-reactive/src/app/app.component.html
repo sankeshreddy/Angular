@@ -15,8 +15,8 @@
               formControlName="firstName"
               [ngClass]="{ 'is-invalid': submitted && h.firstName.errors }"
             />
-            <div class="text-warning">
-              <div>First Name is required</div>
+            <div *ngIf="submitted && h.firstName.errors" class="text-warning">
+              <div *ngIf="h.firstName.errors.required">First Name is required</div>
             </div>
           </div>
           <div class="form-group col-6">
@@ -27,8 +27,8 @@
               formControlName="lastName"
               [ngClass]="{ 'is-invalid': submitted && h.lastName.errors }"
             />
-            <div class="text-warning">
-              <div>Last Name is required</div>
+            <div *ngIf="submitted && h.lastName.errors" class="text-warning">
+              <div *ngIf="h.lastName.errors.required">Last Name is required</div>
             </div>
           </div>
         </div>
@@ -40,9 +40,9 @@
             formControlName="email"
             [ngClass]="{ 'is-invalid': submitted && h.email.errors }"
           />
-          <div class="text-warning">
-            <div>Email is required</div>
-            <div>Email must be a valid email address</div>
+          <div *ngIf="h.email.touched && h.email.errors" class="text-warning">
+            <div *ngIf="h.email.errors.required">Email is required</div>
+            <div *ngIf="h.email.errors.email">Email must be a valid email address</div>
           </div>
         </div>
 
@@ -58,9 +58,9 @@
               formControlName="password"
               [ngClass]="{ 'is-invalid': submitted && h.password.errors }"
             />
-            <div class="text-warning">
-              <div>Password is required</div>
-              <div>Password must be at least 6 characters</div>
+            <div *ngIf="h.password.touched && h.password.errors" class="text-warning">
+              <div *ngIf="h.password.errors.required">Password is required</div>
+              <div *ngIf="h.password.errors.minlength">Password must be at least 6 characters</div>
             </div>
           </div>
           <div class="form-group col">
@@ -69,9 +69,9 @@
             formControlName="confirmPassword"
               [ngClass]="{ 'is-invalid': submitted && h.confirmPassword.errors }"
             />
-            <div class="text-warning">
-              <div>Confirm Password is required</div>
-              <div>Passwords must match</div>
+            <div *ngIf="h.confirmPassword.touched && h.confirmPassword.errors" class="text-warning">
+              <div *ngIf="h.confirmPassword.errors.required">Confirm Password is required</div>
+              <div *ngIf="h.confirmPassword.errors.mustmatch">Passwords must match</div>
             </div>
           </div>
         </div>
