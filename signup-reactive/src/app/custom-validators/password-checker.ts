@@ -8,7 +8,7 @@ export function PasswordChecker(controlName: string, CompareControlName: string)
 
         if (password.value !== confPassword.value) {
 
-            confPassword.setErrors({MustMatch: true});
+            confPassword.setErrors({Mustmatch: true});
             
         }else{
             confPassword.setErrors(null);
