@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import {faEnvelope,faMapMarkedAlt,faPhone,faDatabase,faCalendar} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-card',
@@ -7,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
+  @Input() 
+  user;
+
+  faEnvelope = faEnvelope;
+  faMapMarkedAlt = faMapMarkedAlt;
+  faPhone = faPhone;
+  faDatabase = faDatabase;
+  faCalendar = faCalendar;
   constructor() { }
 
   ngOnInit(): void {
