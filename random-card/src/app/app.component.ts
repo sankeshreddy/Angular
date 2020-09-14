@@ -41,7 +41,7 @@ export class AppComponent {
     },
     (err) => {
       console.log(err);
-      this.toastr.error(err.status, "OOPS Something");
+      this.toastr.error(err.status, "OOPS Something went wrong");
     }
     );
   }
