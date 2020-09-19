@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "github-login-firebase"
+    }
+  },
+  "defaultProject": "github-login-firebase",
+  "cli": {
+    "analytics": "8e8d0083-1a2d-4265-8609-afa68f18a830"
+  }
 }
