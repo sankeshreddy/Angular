@@ -27,6 +27,7 @@ import {AngularFireModule} from '@angular/fire';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {ToastrModule} from 'ngx-toastr';
     HomeComponent,
     PagenotfoundComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
