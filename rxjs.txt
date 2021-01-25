@@ -1,4 +1,4 @@
-1.Comparing js with TypeScript
+1.Comparing JavaScript with TypeScript
 
 document.addEventListener("click", () => {
 console.log("clicked");
