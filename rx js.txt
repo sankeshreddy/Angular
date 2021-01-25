@@ -1,0 +1,109 @@
+1.Comparing js with TypeScript
+
+document.addEventListener("click", () => {
+console.log("clicked");
+});
+
+/* now with rxjs*/
+
+import { fromEvent } from "rxjs";
+fromEvent(document, "click").subscribe(() => console.log("clicked"));
+
+2.Understand the flow in RxJs
+
+import { fromEvent } from "rxjs";
+import { count, scan } from "rxjs/operators";
+
+fromEvent(document, "click")
+  .pipe(scan(count => count + 1, 0))
+  .subscribe(count => console.log(` Clicked at: ${count}`));
+
+3.Observable in RxJs
+
+import { Observable, Subscriber } from "rxjs";
+
+const observable = new Observable(Subscriber => {
+  Subscriber.next(1);
+  Subscriber.next(2);
+  Subscriber.next(3);
+
+  setTimeout(() => {
+    Subscriber.next(4);
+    Subscriber.complete();
+  }, 2000);
+});
+
+4.observers in RxJs
+
+import { Observable, Subscriber } from "rxjs";
+
+const observable = new Observable(Subscriber => {
+  Subscriber.next(1);
+  Subscriber.next(2);
+  Subscriber.next(3);
+
+  setTimeout(() => {
+    Subscriber.next(4);
+    Subscriber.complete();
+  }, 2000);
+});
+
+console.log("I AM ABOUT TO SUBSCRIBE");
+
+observable.subscribe({
+  next(x) {
+    console.log("we got: " + x);
+  },
+  error(err) {
+    console.log("Error is: " + err);
+  },
+  complete() {
+    console.log("COMPLETED");
+  }
+});
+
+console.log("All Done");
+
+5.Subscribe and unsubscribe to events
+
+import { Observable, Subscriber } from "rxjs";
+
+const observable = new Observable(Subscriber => {
+  Subscriber.next(1);
+  Subscriber.next(2);
+  Subscriber.next(3);
+
+  setTimeout(() => {
+    Subscriber.next(4);
+    Subscriber.complete();
+  }, 2000);
+});
+
+console.log("I AM ABOUT TO SUBSCRIBE");
+
+const Subscriber = observable.subscribe({
+  next(x) {
+    console.log("we got: " + x);
+  },
+  error(err) {
+    console.log("Error is: " + err);
+  },
+  complete() {
+    console.log("COMPLETED");
+  }
+});
+
+Subscriber.unsubscribe();
+console.log("All Done");
+
+***************Another Example**************************
+
+import { from } from "rxjs";
+
+const observable = from([10, 20, 30, 40, 50]);
+
+const subscription = observable.subscribe(x => console.log(x));
+
+subscription.unsubscribe();
+
+
